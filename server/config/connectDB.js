@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 async function connectDB(){
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/Chat_Chat');
+        await mongoose.connect(`${process.env.MONGODB_URL}`);
         const connection = mongoose.connection
         connection.on('Connected',()=>{
             console.log("Connect to DB")
