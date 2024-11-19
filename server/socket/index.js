@@ -137,7 +137,6 @@ console.log('get',getConversationMessage)
     const updateMessages = await MessageModel.updateMany({
       _id:{"$in":conversationMessageId},msgByUserId:msgByUserId
     },{"$set":{seen:true}})
-console.log('upd',updateMessages)
     //send conversation
 
     const conversationSender =await getConversation(user?._id?.toString())
