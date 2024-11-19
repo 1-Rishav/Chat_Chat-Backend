@@ -90,12 +90,10 @@ io.on("connection", async (socket) => {
           videoUrl:data?.videoUrl,
           msgByUserId: data?.msgByUserId
     })
-    console.log(message);
     const saveMessage = await message.save()
     const updateConversation = await ConversationModel.updateOne({_id:conversation?._id},{
       "$push":{messages:saveMessage?.id}
     })
-    console.log('up',updateConversation)
 
     const getConversationMessage = await ConversationModel.findOne({"$or":[
       {
@@ -107,7 +105,7 @@ io.on("connection", async (socket) => {
     ]}).populate('messages').sort({updatedAt:-1})
     io.to(data?.sender).emit('message',getConversationMessage?.messages || [])
     io.to(data?.receiver).emit('message',getConversationMessage?.messages || [])
-console.log('get',getConversationMessage)
+    
     //send conversation
 
     const conversationSender =await getConversation(data?.sender)
