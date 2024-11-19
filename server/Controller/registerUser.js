@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 async function registerUser(req, res) {
   try {
     const { name, email, password, profile_pic } = req.body;
+    console.log(name, email, password)
     const checkEmail = await UserModel.findOne({ email });
 
     if (checkEmail) {
