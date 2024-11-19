@@ -27,7 +27,7 @@ const messageSchema = new mongoose.Schema({
 const conversationSchema = new mongoose.Schema({
     sender:{
         type:mongoose.Schema.ObjectId,
-        required:true,
+        
         ref:'UserModel'
     },
     receiver:{
