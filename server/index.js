@@ -11,7 +11,7 @@ const {app,server} = require('./socket/index')
 app.use(express.json());
 app.use(cookiesParser());
 app.use(cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.BASE_URL,
     credentials:true
 }));
 
