@@ -18,7 +18,7 @@ const messageSchema = new mongoose.Schema({
     },
     msgByUserId:{
         type:mongoose.Schema.ObjectId,
-        required:true,
+        //required:true,
         ref:'UserModel'
     }
 },{
